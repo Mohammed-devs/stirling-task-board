@@ -1,16 +1,7 @@
 {
-  "functions": {
-    "src/worker/index.ts": {
-      "runtime": "edge"
-    }
-  },
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/src/worker/index.ts"
-    },
-    {
-      "source": "/((?!api/).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
