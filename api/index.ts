@@ -21,15 +21,14 @@ const app = new Hono<{ Bindings: Env }>();
 app.use('/*', cors());
 
 // Get all boards
+// --- REPLACE IT WITH THIS NEW CODE ---
 app.get('/api/boards', async (c) => {
-  try {
-    const result = await c.env.DB.prepare('SELECT * FROM boards ORDER BY created_at DESC').all();
-    const boards = result.results.map(board => BoardSchema.parse(board));
-    return c.json(boards);
-  } catch (error) {
-    console.error('Error fetching boards:', error);
-    return c.json({ error: 'Failed to fetch boards' }, 500);
-  }
+  // Return some fake, hardcoded data for now
+  const fakeBoards = [
+    { id: 1, name: 'My First Board', description: 'This is a test board.', created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
+    { id: 2, name: 'Project Phoenix', description: 'Tasks for the new project.', created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
+  ];
+  return c.json(fakeBoards);
 });
 
 // Get a specific board with columns and tasks
