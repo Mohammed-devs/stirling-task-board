@@ -18,5 +18,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/worker"]
+  "include": ["src/worker", "src/env.d.ts"]
 }
