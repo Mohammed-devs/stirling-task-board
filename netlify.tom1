@@ -1,0 +1,21 @@
+# This is the main build configuration for your site.
+[build]
+  # This command builds both your frontend and your serverless functions.
+  command = "npm run build"
+  # This is the folder where your Vite frontend is built.
+  publish = "dist"
+  # This tells Netlify to look for serverless functions in the 'api' directory.
+  functions = "api/"
+
+# This is the routing rule for your backend API.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/index/:splat"
+  status = 200
+
+# This is the fallback rule for your React frontend (Single-Page App).
+# It must be the LAST rule.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
