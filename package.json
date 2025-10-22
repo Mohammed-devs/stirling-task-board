@@ -43,9 +43,8 @@
     "check": "tsc && vite build && wrangler deploy --dry-run",
     "dev": "vite",
     "lint": "eslint .",
-    "scripts": {
     "vercel-build": "npm install --legacy-peer-deps && npm run build"
-}
+
 
   }
 }
